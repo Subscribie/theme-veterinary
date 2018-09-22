@@ -4,34 +4,35 @@
 {% block body %}
 
 <div class="background-white">
-    <div class="flex flex-center">
-      <h1>Packages<h1>
-    </div>
+<div class="flex flex-center">
+  <h1>Packages<h1>
+</div>
 
-    <div class="flex flex-center flex-wrap">
-        <div class="plan">
-        {% for item in jamla['items'] %}
-            <h2>{{ item['title']|safe }}</h2>
+<div class="flex flex-center flex-wrap">
+    
+    <div class="plan">
+    {% for item in jamla['items'] %}
+        <h2>{{ item['title']|safe }}</h2>
 
-            &pound;{{ "%.2f"|format(item['monthly_price']/100) }} a month
-            {% if item['sell_price'] %}
-              Upfont cost: &pound;{{ "%.2f"|format(item['sell_price']/100) }}
-            {% else %}
-              Upfont cost: &pound;0.00
-            {% endif %}
-            <ul>
-                {% for sellingPoint in item['selling_points'] %}
-                    <li>{{ sellingPoint|safe }}</li>
-                {% endfor %}
-            </ul>
-            <div class="flex flex-center">
-                <a href="/new_customer?plan={{ item['sku'] }}"
-                    class="btn btn-lg btn-block btn-primary">Choose</a>
-                {% endfor %}
-            </div>
+        &pound;{{ "%.2f"|format(item['monthly_price']/100) }} a month
+        {% if item['sell_price'] %}
+          Upfont cost: &pound;{{ "%.2f"|format(item['sell_price']/100) }}
+        {% else %}
+          Upfont cost: &pound;0.00
+        {% endif %}
+        <ul>
+            {% for sellingPoint in item['selling_points'] %}
+                <li>{{ sellingPoint|safe }}</li>
+            {% endfor %}
+        </ul>
+        <div class="flex flex-center">
+            <a href="/new_customer?plan={{ item['sku'] }}" class="btn">
+            Choose
+            </a>
         </div>
-
+        {% endfor %}
     </div>
 </div>
+<div>
 
 {% endblock %}
