@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block title %}New Customer{% endblock %}
+
+
+{% block body %}
+
+
+<div class="background-white">
+    <h1>Order Information</h1>                 
+    <h2>Complete the form below</h2>
+
+    <form action="" id="new_customer" method=post action=/new_customer >
+
+    <input type="hidden" name="mobile" id="mobile" placeholder="+447920000000"
+        value="NULL">
+
+    {{ form.csrf_token }}
+
+    {% if error %}
+      <p class=error><stong>Error:</strong> {{ error }}
+    {% endif %}
+
+    <div class="form-group">
+        <label for="given_name">First Name</label>
+        <input type="text" name="given_name" id="given_name" class="form-control"
+            placeholder="John" value="{{ given_name }}">
+    </div>
+
+    <div class="form-group">
+        <label for="family_name">Last Name</label>
+        <input type="text" name=family_name id=family_name class="form-control" 
+            placeholder="Smith" value="{{ family_name }}">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name=email id=email class="form-control" 
+            placeholder="johnsmith@gmail.com" value="{{ email }}">
+    </div>
+
+    <h3>Address</h3>
+    <div class="form-group">
+        <label for="address_line_one">Address line 1</label>
+        <input type="text" name="address_line_one" id="address_line_one" 
+            class="form-control" aria-describedby="addressHelp">
+        <small id="addressHelp" class="form-text text-muted">
+        We need this for billing purposes, that's all!
+        </small>
+    </div>
+
+    <div class="form-group">
+        <label for="city">City</label>
+        <input  type="text" name="city" id="city" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label class="label">Post Code</label>
+        <input  type="text" name="postcode" id="postcode" class="form-control">
+    </div>
+
+          <h3>Order Summary</h3>
+
+          {% for item in jamla['items'] %}
+            {% if item['sku'] == request.args.get('plan') %}
+
+              <h4>{{ item['title'] }}</h4>
+              <div>
+                <ul>
+                {% for selling_points in item['selling_points'] %}
+                  <li>{{ selling_points }}</li>
+                {% endfor %}
+                </ul>
+              </div>
+              <div>
+                {% for requirement in item['requirements'] %}
+                  {% if requirement['instant_payment'] == True %}
+                    <p><b>Pay today:</b> &pound;{{ "%.2f"|format(item['sell_price']/100) }}</p>
+                  {% endif %}
+                  {% if requirement['subscription'] == True %}
+                    <p><b>Price per month:</b> &pound;{{ "%.2f"|format(item['monthly_price']/100) }}</p>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div>
+
+              </div>
+
+            {% endif %}
+          {% endfor %}
+
+    <input type=submit class="btn btn-primary" value="Next Step">
+
+  </form>
+
+</div>
+
+{% endblock %}

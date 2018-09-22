@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %} Login {% endblock %}
+
+{% block body %}
+<div class="background-white">
+    <h1>Magic Login</h1>
+    <h2>Enter your email, we'll send you a magic login link</h2>
+    <hr>
+
+    <form method="POST" action="{{ url_for('auth.login') }}">
+            {{ form.csrf_token }}
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input id="email" class="form-control" name="email" type="email" 
+                placeholder="Email Address" aria-describedby="emailHelp" 
+                value="" required>
+            <small id="emailHelp" class="form-text text-muted">
+            Enter your account email address below and we'll email a secure 
+            login link.
+            </small>
+
+            <br /><br />
+            <button type="submit" class="btn" >Magic Login</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}

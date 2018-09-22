@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{% block title %} Dashboard {% endblock %}
+
+
+
+{% block body %}
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+  </ol>
+</nav>
+
+<div class="container">
+    <h1 class="display-4">Dashboard</h1>
+
+    <p class="lead">Manage your shop settings.</p>
+
+    <h2>Payment Gateways</h2>
+    <hr />
+    <div class="row">
+        <div class="col-sm">
+            <p class="lead">Payment gateways allow you to take payment from your 
+                customers over the internet, you need to link at least 
+                <b>one</b> in order to successfully generate income from your 
+                store.
+            </p>
+            <p>Unlike most subscription website services, 
+                Subscribie doesn't take a cut of each purchase!
+            </p>
+            <p>Payment providers however do take a fee.</p>
+        </div>
+    </div><!-- end .row -->
+
+    <div class="row">
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <h5 class="card-header">Stripe</h5>
+              <img class="card-img-top" src="/static/stripe.svg" 
+                style="background-color:#5533ff;" alt="Stripe Logo">
+              <div class="card-body">
+                <p class="card-text">Stripe works well for one-off payments,
+                customers can use their credit or debit card to make purchases 
+                securely online.</p>
+                <a class=" btn
+                {% if stripe_connected  %}
+                btn-success
+                {% else %}
+                btn-info
+                {% endif %}
+                " href="/connect/stripe/manually">
+                {% if stripe_connected  %}
+                    Active. Click to reconnect
+                {% else %}Connect to Stripe
+                {% endif %}
+                </a>
+              </div>
+            </div><!-- end card -->
+            <br />
+        </div><!-- end .col-sm -->
+
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <h5 class="card-header">GoCardless</h5>
+              <img class="card-img-top" src="/static/gocardless-blue-rgb_2018.svg" 
+                alt="GoCardless Logo" style="min-height:136px;padding:15px">
+              <div class="card-body">
+                <p class="card-text">
+                GoCardless allows you to take scheduled payments easily using 
+                Direct Debit, which makes it great for subscription services.
+                </p>
+                <a class="btn
+                {% if gocardless_connected  %}
+                btn-success
+                {% else %}
+                btn-info
+                {% endif %}
+                " href="/connect/gocardless/manually">
+                {% if gocardless_connected  %}
+                    Active. Click to reconnect
+                {% else %}
+                    Connect to GoCardless
+                {% endif %}
+                </a>
+              </div>
+            </div><!-- end card -->
+        </div><!-- end .col-sm -->
+    </div><!-- end .row -->
+
+    <br />
+    <h2 id="analytics">Analytics Integrations</h2>
+    <br />
+    <div class="row">
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <h5 class="card-header">Google Tag Manager</h5>
+              <img src="/static/google_tag_manager.jpg" 
+                  alt="Google Tag Manager logo" 
+                  class="card-img-top" />
+                <div class="card-body">
+                    <p class="card-text">
+                     Track customer behaviour like the pros.
+                     <a href="https://marketingplatform.google.com/about/tag-manager/">
+                     Learn about using Tag Manager</a>
+                    </p>
+                    <a class="btn 
+                    {% if jamla['integrations']['google_tag_manager']['container_id'] %}
+                    btn-success
+                    {% else %}
+                    btn-info
+                    {% endif %}
+                    " href="/connect/google_tag_manager/manually">
+                    {% if google_tag_manager_connected %}
+                    Active! Click to reconnect Tag Manager
+                    {% else %}
+                        Activate
+                    {% endif %}
+                    </a>
+                </div><!-- end .card-body -->
+            </div><!-- end .card -->
+        </div><!-- end .col-sm -->
+
+    </div><!-- end .row -->
+
+    <div class="row">
+        <div class="col-sm">
+            <br />
+            <h2>Edit Items</h2>
+            <p class="lead">
+                Change the items in your shop. 
+            </p>
+            <a class="btn btn-success" href="/edit">
+            Edit
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

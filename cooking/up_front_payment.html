@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %} Up-front payment {% endblock %} 
+
+{% block body %} 
+
+<div class="background-white">
+
+<h1>Great choice {{ fname }}!</h1>
+<h2>Order Summary:</h2>
+
+<h4>Plan: {{ package|capitalize() }}</h4>
+<ul>
+    {% for selling_point in selling_points %}
+    <li>{{ selling_point }}</li>
+    {% endfor %}
+</ul>
+
+   <h4>Total: 
+    <small>
+        &pound; {{ "%.2f"|format(upfront_cost/100) }}
+    </small>
+   </h4>
+   
+	<script src="/static/up_front.js"></script>
+    <form action="/up_front" method="post" id="payment-form" 
+          class="text-center">
+      <input id="sid" name="sid" type="hidden" value="{{ sid }}"></input>
+      <input id="package" name="package" type="hidden" value="{{ package }}"></input>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ stripe_pub_key }}"
+            data-description="{{ jamla['company']['name'] }} - {{ package }}"
+            data-currency="gbp"
+            data-amount="{{ upfront_cost }}"
+            data-locale="auto">
+    </script>
+    </form>
+</div>
+{% endblock %}

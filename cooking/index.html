@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %} {{ jamla['company']['name'] }} {% endblock %}
+
+{% block body %}
+
+<div class="flex flex-center">
+    <section class="lead-homepage">
+        <h1>{{ jamla['company']['name'] }}</h1>
+        <h2>Delivered monthly</h2>
+        <p> {{ jamla['company']['slogan'] }} </p>
+    </section>
+</div>
+
+<div class="flex flex-center">
+    <a class="btn" href="/choose" 
+        role="button">Subscribe Now</a> 
+    <a class="btn btn-secondary" href="/" 
+        role="button" >Learn more</a>
+</div>
+
+{% endblock %}

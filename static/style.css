@@ -1,0 +1,117 @@
+body {
+    background: url(/static/splash.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    border-bottom: 5px solid black;
+}
+
+section {
+    padding: 15px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.lead-homepage h1 {
+    font-size: 2.5em;
+    margin-bottom: 0px;
+}
+
+.lead-homepage h2 {
+    font-size: 3em;
+    margin: 0px;
+}
+
+.lead-homepage p {
+    font-size: 1.35em;
+}
+
+nav {
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+nav a, nav a:visited {
+    text-decoration: none;
+    color: white;
+    margin-right: 12px;
+    margin-top: 5px;
+}
+
+nav a.active {
+    border-bottom: 3px solid white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.margin-left-auto {
+    margin-left: auto;
+}
+
+.lead-homepage {
+    display: block;
+    width: 425px;
+    text-align: center;
+    margin-top: 25vh;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+.btn {
+    background: #ff2929;
+    border: 2px solid #ff2929;
+    width: 120px;
+    display: block;
+    text-align: center;
+    padding: 5px 0px;
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.btn-secondary {
+    background: none;
+    border: 2px solid #ffffffd4;
+    font-weight: bold;
+}
+
+.plan {
+    border: 4px solid #000000a6;
+    padding: 10px;
+    margin: 15px 20px 15px 15px;
+}
+
+.background-white {
+    background: #ffffffd6;
+    color: #000;
+}

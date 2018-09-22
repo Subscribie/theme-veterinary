@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block title %} Connect Google Tag Manager{% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+<nav aria-label="breadcrumb">                                                    
+  <ol class="breadcrumb">                                                        
+    <li class="breadcrumb-item"><a href="/">Home</a></li>                        
+    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>          
+    <li class="breadcrumb-item" aria-current="page">Connect Google Tag Manager</li>
+  </ol>                                                                          
+</nav>
+
+    <h1 class="display-4">Connect Tag Manager</h1>
+
+    <p class="lead">To start tracking using Google Tag manager, copy &amp; paste your 
+       <em>container id</em> into the form below.
+    </p>
+
+          {% if jamla['integrations']['google_tag_manager']['container_id'] %}
+            <div class="alert alert-primary" role="alert">
+            Google Tag Manager is already connected!
+            </div>
+          {% else %}
+            <div class="alert alert-warning" role="alert">
+            Google Tag Manager isn't yet configured, use the form below.
+            </div>
+          {% endif %}
+        <br />
+        <form class="form" action="" method="POST" action="/">
+
+            {{ form.csrf_token }}
+        <div class="form-group">
+            <label class="label" for="container_id">Publishable Key:</label>
+            <input class="form-control" type="text" name="container_id"
+                   id="container_id" placeholder="GTM-ABC123">
+        </div>
+            <button type="submit" class="btn btn-success">
+            {% if jamla['integrations']['google_tag_manager']['container_id'] %}
+            Reconnect
+	    {% else %}
+            Connect
+            {% endif %} 
+            Google Tag Manager
+            </button>
+        </form>
+        <br />
+        <h3 class="title is-5">Need some help?</h3>
+        <img src="/static/google_tag_manager.jpg" style="max-height:100px">
+        <p>In order to link Google Tag Manager, you must already have an account 
+           created. If you do not yet have an account, 
+           <a href="https://marketingplatform.google.com/about/tag-manager/">
+           register for Google Tag Manager</a> to create one.
+        </p>
+        <h3 class="title is-5">Google Tag Manager is FREE</h3>
+        <p>Subscribie does not charge you for Google Tag Manager integration, 
+        but do make sure you learn how to use it to see the benefits.</p>
+
+</div>
+{% endblock %}

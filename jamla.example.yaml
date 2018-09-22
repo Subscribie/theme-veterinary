@@ -1,0 +1,72 @@
+company:
+  logo: logo.svg
+  name: Doorstep Chef
+  slogan: Michelin style, to your door
+  start_image: start.svg
+integrations:
+  google_tag_manager:
+    active: true
+    container_id: 
+  tawk:
+    active: false
+    property_id: 
+items:
+- icons:
+  - size: 48x48
+    src: images/item3148.png
+    type: image/png
+  - size: 192x192
+    src: images/item3192.png
+    type: image/png
+  monthly_price: 2400
+  primary_colour: '#e73b1a'
+  primary_icon:
+    src: /static/readytogo.png
+    type: ''
+  requirements:
+    customer_address: true
+    customer_contact_details_required: true
+    instant_payment: true
+    subscription: true
+  sell_price: 1000
+  selling_points:
+  - Make hasstle free meals from scratch
+  - Large variety of UK & worldwide cuisine
+  - Less than 20 mins to prep
+  sku: readyToGo
+  subscription: true
+  subscription_terms:
+  - minimum_term_months: 0
+  title: Ready To Go!
+modules:
+modules_path:
+pages:
+- terms:
+    path: terms
+    template_file: terms.html
+payment_providers:
+  gocardless:
+    access_token: fds
+    environment: sandbox
+    instant_payment_supported: true
+    sepa_direct_supported: false
+    subscription_supported: true
+    variable_payments_supported: true
+  paypal:
+    instant_payment_supported: true
+    sepa_direct_supported: false
+    subscription_supported: true
+    variable_payments_supported: false
+  stripe:
+    instant_payment_supported: true
+    publishable_key: gg
+    secret_key: gg
+    sepa_direct_supported: false
+    subscription_supported: true
+    variable_payments_supported: false
+theme:
+  name: /home/chris/Documents/programming/python/subscribie-themes/theme-cooking/cooking/
+  static_folder: /home/chris/Documents/programming/python/subscribie-themes/theme-cooking/static/
+users:
+- jon@example.com
+version: 1
