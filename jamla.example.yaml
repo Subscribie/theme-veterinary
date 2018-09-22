@@ -1,7 +1,7 @@
 company:
   logo: logo.svg
-  name: Doorstep Chef
-  slogan: Michelin style, to your door
+  name: Red Rum Equine Services
+  slogan: Specalist Horse Massage Therapist
   start_image: start.svg
 integrations:
   google_tag_manager:
@@ -30,14 +30,14 @@ items:
     subscription: true
   sell_price: 1000
   selling_points:
-  - Make hasstle free meals from scratch
-  - Large variety of UK & worldwide cuisine
-  - Less than 20 mins to prep
+  - Routine horse massages
+  - Sports injury
+  - Injury prevention
   sku: readyToGo
   subscription: true
   subscription_terms:
   - minimum_term_months: 0
-  title: Ready To Go!
+  title: Equine Massages
 modules:
 modules_path:
 pages:
@@ -64,9 +64,10 @@ payment_providers:
     sepa_direct_supported: false
     subscription_supported: true
     variable_payments_supported: false
+front_page: index
 theme:
-  name: /home/chris/Documents/programming/python/subscribie-themes/theme-cooking/cooking/
-  static_folder: /home/chris/Documents/programming/python/subscribie-themes/theme-cooking/static/
+  name: /path-to/theme-veterinary/veterinary/
+  static_folder: /path/to/theme-veterinary/static/
 users:
 - jon@example.com
 version: 1

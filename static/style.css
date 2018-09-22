@@ -47,13 +47,13 @@ nav {
 
 nav a, nav a:visited {
     text-decoration: none;
-    color: white;
+    color: black;
     margin-right: 12px;
     margin-top: 5px;
 }
 
 nav a.active {
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid black;
 }
 
 .form-group {
@@ -87,8 +87,8 @@ nav a.active {
 }
 
 .btn {
-    background: #ff2929;
-    border: 2px solid #ff2929;
+    background: black;
+    border: 2px solid black;
     width: 120px;
     display: block;
     text-align: center;
@@ -103,6 +103,7 @@ nav a.active {
     background: none;
     border: 2px solid #ffffffd4;
     font-weight: bold;
+    color: black;
 }
 
 .plan {
