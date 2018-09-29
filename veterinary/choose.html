@@ -10,8 +10,8 @@
 
 <div class="flex flex-center flex-wrap">
     
-    <div class="plan">
     {% for item in jamla['items'] %}
+    <div class="plan">
         <h2>{{ item['title']|safe }}</h2>
 
         &pound;{{ "%.2f"|format(item['monthly_price']/100) }} a month
@@ -30,8 +30,8 @@
             Choose
             </a>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 <div>
 
